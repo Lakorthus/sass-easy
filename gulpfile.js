@@ -2,13 +2,13 @@ const { src, dest, watch, series } = require('gulp')
 const sass = require('gulp-sass')(require('sass'));
 
 function buildStyles() {
-  return src('*.scss')
+  return src('caimito/**/*.scss')
     .pipe(sass())
-    .pipe(dest('css'))
+    .pipe(dest('public'))
 }
 
 function watchTask() {
-  watch(['*.scss'], buildStyles)
+  watch(['caimito/**/*.scss'], buildStyles)
 }
 
 exports.default = series(buildStyles, watchTask)
