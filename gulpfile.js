@@ -4,7 +4,7 @@ const sass = require('gulp-sass')(require('sass'));
 function buildStyles() {
   return src('caimito/**/*.scss')
     .pipe(sass())
-    .pipe(dest('public'))
+    .pipe(dest('public',{ sourcemaps: true }))
 }
 
 function watchTask() {
