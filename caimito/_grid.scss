@@ -1,6 +1,13 @@
 @use "sass:math";
 
 $grid-columns: 12;
+$grid-gaps: (
+  "0": 0,
+  "1": 10px,
+  "2": 20px,
+  "3": 30px,
+);
+$layout-values: flex-start, flex-end, center, space-between, space-around;
 
 // base layout classes
 .container {
@@ -15,6 +22,24 @@ $grid-columns: 12;
   flex-flow: row wrap;
 }
 
+// grid gaps
+@each $key, $val in $grid-gaps {
+  .gap-#{$key} > * {
+    padding: $val;
+  }
+  .gap-#{$key} {
+    margin-left: -$val;
+    margin-right: -$val;
+  }
+}
+
+// justify content classes
+@each $val in $layout-values {
+  .justify-#{$val} {
+    justify-content: $val;
+  }
+}
+
 // col classes
 @include xs {
   @for $i from 1 through $grid-columns {
@@ -25,7 +50,6 @@ $grid-columns: 12;
     }
   }
 }
-
 @include sm {
   @for $i from 1 through $grid-columns {
     .col-#{$i}-sm {
@@ -35,7 +59,6 @@ $grid-columns: 12;
     }
   }
 }
-
 @include md {
   @for $i from 1 through $grid-columns {
     .col-#{$i}-md {
@@ -45,7 +68,6 @@ $grid-columns: 12;
     }
   }
 }
-
 @include lg {
   @for $i from 1 through $grid-columns {
     .col-#{$i}-lg {
@@ -55,7 +77,6 @@ $grid-columns: 12;
     }
   }
 }
-
 @include xl {
   @for $i from 1 through $grid-columns {
     .col-#{$i}-xl {
