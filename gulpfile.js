@@ -6,7 +6,7 @@ function buildStyles() {
   return src('caimito/**/*.scss')
   .pipe(sass({ outputStyle: 'compressed' }))
   .pipe(purgecss({ content: ['*.html'] }))
-  .pipe(dest('public',{ sourcemaps: true }))
+  .pipe(dest('CSS',{ sourcemaps: true }))
 }
 
 function watchTask() {
