@@ -6,6 +6,7 @@ To use Caimito, do these three simple steps:
 
 2. Go into gulpfile.js and edit the function 
 
+```
 function buildStyles() {
   return src('sass/**/*.scss')
   .pipe(sass({ outputStyle: 'compressed' }))
@@ -16,6 +17,7 @@ function buildStyles() {
 function watchTask() {
   watch(['sass/**/*.scss','*.html'], buildStyles)
 }
+```
 
 3. Start using classes from Caimito or write your customs CSS/SCSS in sass/index.SCSS
 
